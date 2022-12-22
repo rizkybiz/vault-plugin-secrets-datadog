@@ -16,7 +16,7 @@ const (
 )
 
 var (
-	scopes = []string{"scope1", "scope2"}
+	scopes = []string{"incident_read", "usage_read"}
 )
 
 // TestUserRole uses a mock backend to check

@@ -99,7 +99,7 @@ vault write -f datadog/config/rotate
 * Create a Role:
 
 ```sh
-$ vault write datadog/roles/test \
+$ vault write datadog/role/test \
     app_key_scopes=incident_read,usage_read \
     default_ttl=1h max_ttl=3h
 ```

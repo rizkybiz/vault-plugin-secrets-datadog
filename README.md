@@ -105,7 +105,7 @@ $ vault write datadog/roles/test \
 ```
 
 ```sh
-$ vault list datadog/roles
+$ vault list datadog/role
 Keys
 ----
 test

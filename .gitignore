@@ -15,4 +15,4 @@
 # vendor/
 
 # Post `go build` commands for building the plugin
-vault*
+vault/

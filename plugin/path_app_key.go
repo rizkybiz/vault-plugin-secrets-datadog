@@ -36,6 +36,9 @@ func pathAppKey(b *datadogBackend) *framework.Path {
 
 func (b *datadogBackend) pathAppKeyRead(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
 
+	b.lock.Lock()
+	defer b.lock.Unlock()
+
 	roleName := d.Get("name").(string)
 
 	roleEntry, err := b.getRole(ctx, req.Storage, roleName)

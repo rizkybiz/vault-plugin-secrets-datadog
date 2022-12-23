@@ -41,6 +41,9 @@ func pathAPIKey(b *datadogBackend) *framework.Path {
 
 func (b *datadogBackend) pathAPIKeyRead(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
 
+	b.lock.Lock()
+	defer b.lock.Unlock()
+
 	roleName := d.Get("name").(string)
 
 	roleEntry, err := b.getRole(ctx, req.Storage, roleName)

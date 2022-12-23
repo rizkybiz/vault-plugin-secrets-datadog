@@ -10,7 +10,7 @@ import (
 )
 
 // datadogBackend defines a struct that extends the Vault backend
-// and stores the
+// and stores the datadog API Client
 type datadogBackend struct {
 	*framework.Backend
 	lock   sync.RWMutex
@@ -37,6 +37,7 @@ func Factory(ctx context.Context, conf *logical.BackendConfig) (logical.Backend,
 // newBackend returns a new datadogBackend and sets up the paths it will handle and
 // secrets it will store
 func newBackend() *datadogBackend {
+
 	var b = datadogBackend{}
 	b.Backend = &framework.Backend{
 		Help: strings.TrimSpace(backendHelp),
@@ -62,6 +63,7 @@ func newBackend() *datadogBackend {
 		BackendType: logical.TypeLogical,
 		Invalidate:  b.invalidate,
 	}
+
 	return &b
 }
 

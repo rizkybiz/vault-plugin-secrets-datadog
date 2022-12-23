@@ -19,8 +19,9 @@ terminal-1$ make
 terminal-2$ export VAULT_ADDR=http://127.0.0.1:8200
 terminal-2$ export VAULT_TOKEN=root
 terminal-2$ export DATADOG_API_KEY=<valid datadog api key>
-terminal-2$ export DATADOG_API_KEY_ID=<valid datadog api key>
+terminal-2$ export DATADOG_API_KEY_ID=<the ID for the above API key>
 terminal-2$ export DATADOG_APP_KEY=<valid datadog app key scoped to allow for generating both api and app keys>
+terminal-2$ export DATADOG_APP_KEY_ID=<the ID for the above application key>
 terminal-2$ make setup
 ...
 terminal-2$ vault read datadog/apikey/test

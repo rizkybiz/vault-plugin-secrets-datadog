@@ -34,7 +34,7 @@ fmt:
 
 setup:	enable
 	vault write datadog/config  api_key=${DATADOG_API_KEY} app_key=${DATADOG_APP_KEY}
-	vault write datadog/role/test app_key_scopes=incident_read,usage_read max_ttl=3h ttl=2h
-	vault read datadog/role/test
+	vault write datadog/roles/test app_key_scopes=incident_read,usage_read max_ttl=3h ttl=2h
+	vault read datadog/roles/test
 
 .PHONY: build clean fmt start  enable test setup

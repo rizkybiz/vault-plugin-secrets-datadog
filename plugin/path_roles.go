@@ -10,7 +10,7 @@ import (
 )
 
 const (
-	pathRoleDef             = "role/"
+	pathRoleDef             = "roles/"
 	pathRoleHelpSynopsis    = "Manages the Vault role for generating Datadog API and Application Keys."
 	pathRoleHelpDescription = `
 	This path allows you to read and write roles used to generate Datadog API and Application Keys.

@@ -73,9 +73,6 @@ func pathConfig(b *datadogBackend) *framework.Path {
 
 func (b *datadogBackend) pathConfigRead(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
 
-	b.lock.Lock()
-	defer b.lock.Unlock()
-
 	_, err := getConfig(ctx, req.Storage)
 	if err != nil {
 		return nil, err
@@ -87,9 +84,6 @@ func (b *datadogBackend) pathConfigRead(ctx context.Context, req *logical.Reques
 }
 
 func (b *datadogBackend) pathConfigWrite(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
-
-	b.lock.Lock()
-	defer b.lock.Unlock()
 
 	config, err := getConfig(ctx, req.Storage)
 	if err != nil {
@@ -133,9 +127,6 @@ func (b *datadogBackend) pathConfigWrite(ctx context.Context, req *logical.Reque
 
 func (b *datadogBackend) pathConfigDelete(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
 
-	b.lock.Lock()
-	defer b.lock.Unlock()
-
 	err := req.Storage.Delete(ctx, configStoragePath)
 
 	if err == nil {
@@ -146,9 +137,6 @@ func (b *datadogBackend) pathConfigDelete(ctx context.Context, req *logical.Requ
 }
 
 func (b *datadogBackend) PathConfigExistenceCheck(ctx context.Context, req *logical.Request, data *framework.FieldData) (bool, error) {
-
-	b.lock.Lock()
-	defer b.lock.Unlock()
 
 	out, err := req.Storage.Get(ctx, configStoragePath)
 	if err != nil {

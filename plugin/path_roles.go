@@ -120,9 +120,6 @@ func pathRole(b *datadogBackend) []*framework.Path {
 // pathRolesList lists the datadog roleEntries
 func (b *datadogBackend) pathRolesList(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
 
-	b.lock.Lock()
-	defer b.lock.Unlock()
-
 	entries, err := req.Storage.List(ctx, pathRoleDef)
 	if err != nil {
 		return nil, err
@@ -133,9 +130,6 @@ func (b *datadogBackend) pathRolesList(ctx context.Context, req *logical.Request
 
 // pathRolesRead returns a specifc datadog roleEntry
 func (b *datadogBackend) pathRolesRead(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
-
-	b.lock.Lock()
-	defer b.lock.Unlock()
 
 	entry, err := b.getRole(ctx, req.Storage, d.Get("name").(string))
 	if err != nil {
@@ -153,9 +147,6 @@ func (b *datadogBackend) pathRolesRead(ctx context.Context, req *logical.Request
 
 // pathRolesWrite creates or updates a datadog roleEntry
 func (b *datadogBackend) pathRolesWrite(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
-
-	b.lock.Lock()
-	defer b.lock.Unlock()
 
 	name, ok := d.GetOk("name")
 	if !ok {
@@ -217,9 +208,6 @@ func (b *datadogBackend) pathRolesWrite(ctx context.Context, req *logical.Reques
 
 // pathRolesDelete deletes a datadog roleEntry
 func (b *datadogBackend) pathRolesDelete(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
-
-	b.lock.Lock()
-	defer b.lock.Unlock()
 
 	err := req.Storage.Delete(ctx, pathRoleDef+d.Get("name").(string))
 	if err != nil {

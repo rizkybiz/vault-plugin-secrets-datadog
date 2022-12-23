@@ -10,9 +10,14 @@ import (
 )
 
 const (
-	appKeyPath         = "appkey/"
-	pathAppKeyHelpSyn  = ``
-	pathAppKeyHelpDesc = ``
+	appKeyPath        = "appkey/"
+	pathAppKeyHelpSyn = `
+	Generate a datadog Application Key from a role.
+	`
+	pathAppKeyHelpDesc = `
+	This path generates a datadog Application Key based on a particular 
+	role.
+	`
 )
 
 func pathAppKey(b *datadogBackend) *framework.Path {
@@ -35,9 +40,6 @@ func pathAppKey(b *datadogBackend) *framework.Path {
 }
 
 func (b *datadogBackend) pathAppKeyRead(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
-
-	b.lock.Lock()
-	defer b.lock.Unlock()
 
 	roleName := d.Get("name").(string)
 

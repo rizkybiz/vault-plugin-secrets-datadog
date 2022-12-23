@@ -12,7 +12,7 @@ import (
 const (
 	apiKeyPath        = "apikey/"
 	pathAPIKeyHelpSyn = `
-	Generate a datadog API Token from a role.
+	Generate a datadog API Key from a role.
 	`
 	pathAPIKeyHelpDesc = `
 	This path generates a datadog API Key based on a particular 
@@ -40,9 +40,6 @@ func pathAPIKey(b *datadogBackend) *framework.Path {
 }
 
 func (b *datadogBackend) pathAPIKeyRead(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
-
-	b.lock.Lock()
-	defer b.lock.Unlock()
 
 	roleName := d.Get("name").(string)
 

@@ -52,6 +52,7 @@ func newBackend() *datadogBackend {
 			pathRole(&b),
 			[]*framework.Path{
 				pathConfig(&b),
+				pathConfigRotate(&b),
 				pathAPIKey(&b),
 				pathAppKey(&b),
 			},

@@ -24,8 +24,10 @@ const (
 )
 
 type datadogConfig struct {
-	APIKey string `json:"api_key"`
-	AppKey string `json:"app_key"`
+	APIKey   string `json:"api_key"`
+	APIKeyID string `json:"api_key_id"`
+	AppKey   string `json:"app_key"`
+	AppKeyID string `json:"app_key_id"`
 }
 
 func pathConfig(b *datadogBackend) *framework.Path {
@@ -42,12 +44,31 @@ func pathConfig(b *datadogBackend) *framework.Path {
 					Sensitive: true,
 				},
 			},
+			"api_key_id": {
+				Type:        framework.TypeString,
+				Description: "The ID of the datadog API Key",
+				Required:    true,
+				DisplayAttrs: &framework.DisplayAttributes{
+					Name:      "API Key ID",
+					Sensitive: false,
+				},
+			},
 			"app_key": {
 				Type:        framework.TypeString,
 				Description: "The Application Key scoped to admin level priveleges",
+				Required:    true,
 				DisplayAttrs: &framework.DisplayAttributes{
 					Name:      "Application Key",
 					Sensitive: true,
+				},
+			},
+			"app_key_id": {
+				Type:        framework.TypeString,
+				Description: "The ID of the datadog Application Key",
+				Required:    true,
+				DisplayAttrs: &framework.DisplayAttributes{
+					Name:      "Application Key ID",
+					Sensitive: false,
 				},
 			},
 		},
@@ -73,13 +94,16 @@ func pathConfig(b *datadogBackend) *framework.Path {
 
 func (b *datadogBackend) pathConfigRead(ctx context.Context, req *logical.Request, data *framework.FieldData) (*logical.Response, error) {
 
-	_, err := getConfig(ctx, req.Storage)
+	config, err := getConfig(ctx, req.Storage)
 	if err != nil {
 		return nil, err
 	}
 
 	return &logical.Response{
-		Data: map[string]interface{}{},
+		Data: map[string]interface{}{
+			"api_key_id": config.APIKeyID,
+			"app_key_id": config.AppKeyID,
+		},
 	}, nil
 }
 
@@ -105,10 +129,22 @@ func (b *datadogBackend) pathConfigWrite(ctx context.Context, req *logical.Reque
 		return nil, fmt.Errorf("missing API Key in configuration")
 	}
 
+	if apiKeyID, ok := data.GetOk("api_key_id"); ok {
+		config.APIKeyID = apiKeyID.(string)
+	} else if !ok && createOperation {
+		return nil, fmt.Errorf("missing API Key ID in configuration")
+	}
+
 	if appKey, ok := data.GetOk("app_key"); ok {
 		config.AppKey = appKey.(string)
 	} else if !ok && createOperation {
 		return nil, fmt.Errorf("missing Application Key in configuration")
+	}
+
+	if appKeyID, ok := data.GetOk("app_key_id"); ok {
+		config.AppKeyID = appKeyID.(string)
+	} else if !ok && createOperation {
+		return nil, fmt.Errorf("missing Application Key ID in configuration")
 	}
 
 	entry, err := logical.StorageEntryJSON(configStoragePath, config)

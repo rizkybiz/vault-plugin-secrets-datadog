@@ -19,6 +19,7 @@ terminal-1$ make
 terminal-2$ export VAULT_ADDR=http://127.0.0.1:8200
 terminal-2$ export VAULT_TOKEN=root
 terminal-2$ export DATADOG_API_KEY=<valid datadog api key>
+terminal-2$ export DATADOG_API_KEY_ID=<valid datadog api key>
 terminal-2$ export DATADOG_APP_KEY=<valid datadog app key scoped to allow for generating both api and app keys>
 terminal-2$ make setup
 ...
@@ -79,7 +80,7 @@ Now you will create the API and Application Keys that Vault will use to execute 
 1. Under "Organization Settings" click API Keys, then click "New Key" in the upper right corner.
 2. Give the Key a name like `vault-dd-api-key`
 3. Save the Key and repeat the process for an Application Key (found under "Organization Settings)
-4. In a terminal, export both API_KEY and APP_KEY with the respective keys.
+4. In a terminal, export API_KEY, APP_KEY, API_KEY_ID, and APP_KEY_ID with the respective keys/IDs.
 
 See [Datadog documentation][datadog-create-token] about creating API and App Keys for any help you may need.
 
@@ -87,14 +88,26 @@ See [Datadog documentation][datadog-create-token] about creating API and App Key
 ```sh
 vault write datadog/config \
     api_key=$API_KEY \
-    app_key=$APP_KEY
+    app_key=$APP_KEY \
+    api_key_id=$API_KEY_ID \
+    app_key_id=$APP_KEY_ID
 ```
-<!-- COMING SOON -->
-<!-- * Rotate the admin token, so that only vault knows it.
+
+* Rotate the API and App Keys, so that only vault (and datadog admins with access to the console) knows them.
 
 ```sh
-vault write -f datadog/config/rotate
-``` -->
+vault read datadog/config/rotate
+```
+
+* Validate that the keys were rotated
+
+```sh
+vault read datadog/config
+Key           Value
+---           -----
+api_key_id    7dd441ac-d9ff-4e7b-9a23-80cff4a3458e
+app_key_id    8f412eca-e899-4af9-8e38-33302321d3f7
+```
 
 * Create a Role:
 

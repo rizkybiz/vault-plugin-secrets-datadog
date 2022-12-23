@@ -34,6 +34,54 @@ func NewClient(config *datadogConfig) (*datadogClient, error) {
 	return &datadogClient{c}, nil
 }
 
+func (c *datadogClient) listAPIKeys(ctx context.Context) ([]*datadogAPIKey, error) {
+
+	api := datadogV2.NewKeyManagementApi(c.APIClient)
+
+	resp, _, err := api.ListAPIKeys(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	partialKeys := resp.Data
+	var apiKeys []*datadogAPIKey
+	for _, partKey := range partialKeys {
+		resp, _, err := api.GetAPIKey(ctx, *partKey.Id)
+		if err != nil {
+			return nil, err
+		}
+		apiKeys = append(apiKeys, &datadogAPIKey{
+			APIKey:   *resp.Data.Attributes.Key,
+			APIKeyID: *partKey.Id,
+		})
+	}
+	return apiKeys, nil
+}
+
+func (c *datadogClient) listAppKeys(ctx context.Context) ([]*datadogAppKey, error) {
+
+	api := datadogV2.NewKeyManagementApi(c.APIClient)
+
+	resp, _, err := api.ListApplicationKeys(ctx)
+	if err != nil {
+		return nil, err
+	}
+
+	partialKeys := resp.Data
+	var appKeys []*datadogAppKey
+	for _, partKey := range partialKeys {
+		resp, _, err := api.GetApplicationKey(ctx, *partKey.Id)
+		if err != nil {
+			return nil, err
+		}
+		appKeys = append(appKeys, &datadogAppKey{
+			AppKey:   *resp.Data.Attributes.Key,
+			AppKeyID: *partKey.Id,
+		})
+	}
+	return appKeys, nil
+}
+
 func (c *datadogClient) createAPIKey(ctx context.Context, apiKeyName string) (*datadogAPIKey, error) {
 
 	body := datadogV2.APIKeyCreateRequest{

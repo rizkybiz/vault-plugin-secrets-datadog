@@ -1,10 +1,5 @@
 package main
 
-// NOTES:
-// - You can't currently input a URL for a specific datadog endpoint
-// - issuing `vault read datadog/config` won't return anything because
-//   IMHO API and APP keys are secret.
-
 import (
 	"os"
 

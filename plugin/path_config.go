@@ -10,6 +10,7 @@ import (
 )
 
 const (
+	pathConfigDef             = "config"
 	configStoragePath         = "config"
 	pathConfigHelpSynopsis    = "Configure the datadog backend"
 	pathConfigHelpDescription = `
@@ -28,8 +29,9 @@ type datadogConfig struct {
 }
 
 func pathConfig(b *datadogBackend) *framework.Path {
+
 	return &framework.Path{
-		Pattern: "config",
+		Pattern: pathConfigDef,
 		Fields: map[string]*framework.FieldSchema{
 			"api_key": {
 				Type:        framework.TypeString,

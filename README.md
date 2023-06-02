@@ -115,7 +115,7 @@ app_key_id    8f412eca-e899-4af9-8e38-33302321d3f7
 ```sh
 $ vault write datadog/roles/test \
     app_key_scopes=incident_read,usage_read \
-    default_ttl=1h max_ttl=3h
+    ttl=1h max_ttl=3h
 ```
 
 ```sh

@@ -3,7 +3,7 @@ module github.com/rizkybiz/vault-plugin-secrets-datadog
 go 1.18
 
 require (
-	github.com/DataDog/datadog-api-client-go/v2 v2.6.1
+	github.com/DataDog/datadog-api-client-go/v2 v2.13.0
 	github.com/hashicorp/go-hclog v1.5.0
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/hashicorp/vault/api v1.9.0
@@ -52,7 +52,7 @@ require (
 	go.uber.org/atomic v1.10.0 // indirect
 	golang.org/x/crypto v0.5.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
-	golang.org/x/oauth2 v0.3.0 // indirect
+	golang.org/x/oauth2 v0.5.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
 	golang.org/x/text v0.8.0 // indirect
 	golang.org/x/time v0.3.0 // indirect

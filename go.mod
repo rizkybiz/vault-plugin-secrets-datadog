@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/DataDog/datadog-api-client-go/v2 v2.6.1
-	github.com/hashicorp/go-hclog v1.4.0
+	github.com/hashicorp/go-hclog v1.5.0
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/hashicorp/vault/api v1.9.0
 	github.com/hashicorp/vault/sdk v0.6.1

@@ -6,7 +6,7 @@ require (
 	github.com/DataDog/datadog-api-client-go/v2 v2.13.0
 	github.com/hashicorp/go-hclog v1.5.0
 	github.com/hashicorp/go-uuid v1.0.3
-	github.com/hashicorp/vault/api v1.9.0
+	github.com/hashicorp/vault/api v1.9.2
 	github.com/hashicorp/vault/sdk v0.6.1
 	github.com/stretchr/testify v1.8.1
 )
@@ -19,6 +19,7 @@ require (
 	github.com/davecgh/go-spew v1.1.1 // indirect
 	github.com/evanphx/json-patch/v5 v5.6.0 // indirect
 	github.com/fatih/color v1.13.0 // indirect
+	github.com/go-jose/go-jose/v3 v3.0.0 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
@@ -50,7 +51,7 @@ require (
 	github.com/pmezard/go-difflib v1.0.0 // indirect
 	github.com/ryanuber/go-glob v1.0.0 // indirect
 	go.uber.org/atomic v1.10.0 // indirect
-	golang.org/x/crypto v0.5.0 // indirect
+	golang.org/x/crypto v0.6.0 // indirect
 	golang.org/x/net v0.8.0 // indirect
 	golang.org/x/oauth2 v0.5.0 // indirect
 	golang.org/x/sys v0.6.0 // indirect
@@ -60,6 +61,5 @@ require (
 	google.golang.org/genproto v0.0.0-20221207170731-23e4bf6bdc37 // indirect
 	google.golang.org/grpc v1.51.0 // indirect
 	google.golang.org/protobuf v1.28.1 // indirect
-	gopkg.in/square/go-jose.v2 v2.6.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )

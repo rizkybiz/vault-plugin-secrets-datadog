@@ -9,6 +9,8 @@ import (
 	"github.com/hashicorp/vault/sdk/logical"
 )
 
+var Version = "v0.1.0"
+
 // datadogBackend defines a struct that extends the Vault backend
 // and stores the datadog API Client
 type datadogBackend struct {

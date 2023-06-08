@@ -63,8 +63,9 @@ func newBackend() *datadogBackend {
 			b.datadogAPIKey(),
 			b.datadogAppKey(),
 		},
-		BackendType: logical.TypeLogical,
-		Invalidate:  b.invalidate,
+		BackendType:    logical.TypeLogical,
+		Invalidate:     b.invalidate,
+		RunningVersion: Version,
 	}
 
 	return &b

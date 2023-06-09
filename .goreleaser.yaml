@@ -1,0 +1,32 @@
+before:
+  hooks:
+    - go mod tidy
+builds:
+  - env:
+      - CGO_ENABLED=0
+    main: ./cmd/vault-plugin-secrets-datadog/main.go
+    mod_timestamp: '{{ .CommitTimestamp }}'
+    flags:
+      - -trimpath
+    ldflags: 
+      - '-s -w -X github.com/rizkybiz/vault-plugin-secrets-datadog.Version=v{{ .Version }}'
+    goos:
+      - linux
+      - windows
+      - darwin
+    goarch:
+      - amd64
+      - '386'
+      - arm
+      - arm64
+    ignore:
+      - goos: darwin
+        goarch: '386'
+archives:
+  - format: binary
+checksum:
+  name_template: 'vault-plugin-secrets-datadog_{{ .Version }}.checksums.txt'
+snapshot:
+  name_template: "{{ .Version }}"
+changelog:
+  use: github-native

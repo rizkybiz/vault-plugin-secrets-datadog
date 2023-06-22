@@ -57,6 +57,7 @@ var (
 // a Vault role for interoperating with the datadog
 // api
 type datadogRoleEntry struct {
+	Name         string        `json:"name"`
 	AppKeyScopes []string      `json:"app_key_scopes"`
 	TTL          time.Duration `json:"ttl"`
 	MaxTTL       time.Duration `json:"max_ttl"`
@@ -148,18 +149,20 @@ func (b *datadogBackend) pathRolesRead(ctx context.Context, req *logical.Request
 // pathRolesWrite creates or updates a datadog roleEntry
 func (b *datadogBackend) pathRolesWrite(ctx context.Context, req *logical.Request, d *framework.FieldData) (*logical.Response, error) {
 
-	name, ok := d.GetOk("name")
-	if !ok {
+	name := d.Get("name").(string)
+	if name == "" {
 		return logical.ErrorResponse("missing role name"), nil
 	}
 
-	roleEntry, err := b.getRole(ctx, req.Storage, name.(string))
+	roleEntry, err := b.getRole(ctx, req.Storage, name)
 	if err != nil {
 		return nil, err
 	}
 	if roleEntry == nil {
 		roleEntry = &datadogRoleEntry{}
 	}
+
+	roleEntry.Name = name
 
 	createOperation := (req.Operation == logical.CreateOperation)
 
@@ -199,7 +202,7 @@ func (b *datadogBackend) pathRolesWrite(ctx context.Context, req *logical.Reques
 		return logical.ErrorResponse("ttl cannot be greater than max_ttl"), nil
 	}
 
-	if err := setRole(ctx, req.Storage, name.(string), roleEntry); err != nil {
+	if err := setRole(ctx, req.Storage, name, roleEntry); err != nil {
 		return nil, err
 	}
 

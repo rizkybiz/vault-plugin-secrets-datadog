@@ -68,6 +68,7 @@ func (b *datadogBackend) pathAppKeyRead(ctx context.Context, req *logical.Reques
 		"app_key": appKey.AppKey,
 	}, map[string]interface{}{
 		"app_key_id": appKey.AppKeyID,
+		"role":       roleEntry.Name,
 	})
 
 	if roleEntry.TTL > 0 {

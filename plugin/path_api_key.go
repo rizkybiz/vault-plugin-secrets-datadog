@@ -68,6 +68,7 @@ func (b *datadogBackend) pathAPIKeyRead(ctx context.Context, req *logical.Reques
 		"api_key": apiKey.APIKey,
 	}, map[string]interface{}{
 		"api_key_id": apiKey.APIKeyID,
+		"role":       roleEntry.Name,
 	})
 
 	if roleEntry.TTL > 0 {

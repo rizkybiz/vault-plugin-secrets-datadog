@@ -70,11 +70,15 @@ func (c *datadogClient) deleteAPIKey(ctx context.Context, apiKeyID string) error
 
 func (c *datadogClient) createAppKey(ctx context.Context, name string, scopes []string) (*datadogAppKey, error) {
 
+	// as of v2.14 of the DD API, a call to datadogv2.ApplicationKeyCreateRequest
+	// requires the Scopes attributes to be a datadog.NullableList[string]
+	ns := datadog.NewNullableList[string](&scopes)
+
 	body := datadogV2.ApplicationKeyCreateRequest{
 		Data: datadogV2.ApplicationKeyCreateData{
 			Attributes: datadogV2.ApplicationKeyCreateAttributes{
 				Name:   name,
-				Scopes: scopes,
+				Scopes: *ns,
 			},
 			Type: datadogV2.APPLICATIONKEYSTYPE_APPLICATION_KEYS,
 		},

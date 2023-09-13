@@ -24,7 +24,7 @@ test:
 	go test -v ./...
 
 enable:
-	vault secrets enable -path=datadog vault-plugin-secrets-datadog
+	VAULT_ADDR=http://127.0.0.1:8200 vault secrets enable -path=datadog vault-plugin-secrets-datadog
 
 clean:
 	rm -f ./vault/plugins/vault-plugin-secrets-datadog
@@ -33,8 +33,8 @@ fmt:
 	go fmt $$(go list ./...)
 
 setup:	enable
-	vault write datadog/config  api_key=${DATADOG_API_KEY} app_key=${DATADOG_APP_KEY} api_key_id=${DATADOG_API_KEY_ID} app_key_id=${DATADOG_APP_KEY_ID}
-	vault write datadog/roles/test app_key_scopes=incident_read,usage_read max_ttl=3h ttl=2h
-	vault read datadog/roles/test
+	VAULT_ADDR=http://127.0.0.1:8200 vault write datadog/config  api_key=${DATADOG_API_KEY} app_key=${DATADOG_APP_KEY} api_key_id=${DATADOG_API_KEY_ID} app_key_id=${DATADOG_APP_KEY_ID}
+	VAULT_ADDR=http://127.0.0.1:8200 vault write datadog/roles/test app_key_scopes=incident_read,usage_read max_ttl=3h ttl=2h
+	VAULT_ADDR=http://127.0.0.1:8200 vault read datadog/roles/test
 
 .PHONY: build clean fmt start  enable test setup

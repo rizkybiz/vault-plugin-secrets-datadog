@@ -104,6 +104,7 @@ func pathRole(b *datadogBackend) []*framework.Path {
 			},
 			HelpSynopsis:    pathRoleHelpSynopsis,
 			HelpDescription: pathRoleHelpDescription,
+			ExistenceCheck:  b.PathRolesExistenceCheck,
 		},
 		{
 			Pattern: pathRoleDef + "?$",
@@ -218,6 +219,15 @@ func (b *datadogBackend) pathRolesDelete(ctx context.Context, req *logical.Reque
 	}
 
 	return nil, nil
+}
+
+func (b *datadogBackend) PathRolesExistenceCheck(ctx context.Context, req *logical.Request, data *framework.FieldData) (bool, error) {
+
+	out, err := req.Storage.Get(ctx, pathRoleDef)
+	if err != nil {
+		return false, fmt.Errorf("existence check failed: %w", err)
+	}
+	return out != nil, nil
 }
 
 // getRole gets the role from the Vault storage API

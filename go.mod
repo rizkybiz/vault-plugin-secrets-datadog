@@ -3,7 +3,7 @@ module github.com/rizkybiz/vault-plugin-secrets-datadog
 go 1.18
 
 require (
-	github.com/DataDog/datadog-api-client-go/v2 v2.18.0
+	github.com/DataDog/datadog-api-client-go/v2 v2.25.0
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/hashicorp/vault/api v1.10.0
@@ -29,6 +29,7 @@ require (
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.3 // indirect
 	github.com/golang/snappy v0.0.4 // indirect
+	github.com/google/uuid v1.5.0 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
 	github.com/hashicorp/go-immutable-radix v1.3.1 // indirect

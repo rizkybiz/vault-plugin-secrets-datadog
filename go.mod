@@ -1,6 +1,8 @@
 module github.com/rizkybiz/vault-plugin-secrets-datadog
 
-go 1.18
+go 1.21
+
+toolchain go1.22.3
 
 require (
 	github.com/DataDog/datadog-api-client-go/v2 v2.25.0

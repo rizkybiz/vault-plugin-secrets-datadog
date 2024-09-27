@@ -2,7 +2,7 @@ name: Changelog
 on:
   release:
     types:
-      - created
+      - released
 jobs:
   changelog:
     runs-on: ubuntu-latest

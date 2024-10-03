@@ -5,7 +5,7 @@ go 1.22
 toolchain go1.22.3
 
 require (
-	github.com/DataDog/datadog-api-client-go/v2 v2.30.0
+	github.com/DataDog/datadog-api-client-go/v2 v2.31.0
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/hashicorp/vault/api v1.15.0

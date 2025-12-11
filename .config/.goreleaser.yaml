@@ -7,28 +7,28 @@ builds:
   - env:
       - CGO_ENABLED=0
     main: ./cmd/vault-plugin-secrets-datadog/main.go
-    mod_timestamp: '{{ .CommitTimestamp }}'
+    mod_timestamp: "{{ .CommitTimestamp }}"
     flags:
       - -trimpath
-    ldflags: 
-      - '-s -w -X github.com/rizkybiz/vault-plugin-secrets-datadog.Version=v{{ .Version }}'
+    ldflags:
+      - "-s -w -X github.com/rizkybiz/vault-plugin-secrets-datadog.Version=v{{ .Version }}"
     goos:
       - linux
       - windows
       - darwin
     goarch:
       - amd64
-      - '386'
+      - "386"
       - arm
       - arm64
     ignore:
       - goos: darwin
-        goarch: '386'
+        goarch: "386"
       - goos: windows
         goarch: arm
-        goarm: '6'
+        goarm: "6"
 archives:
-  - format: tar.gz
+  - formats: ["tar.gz"]
     name_template: >-
       {{ .ProjectName }}_
       {{- .Version }}_
@@ -39,9 +39,9 @@ archives:
       {{- if .Arm }}v{{ .Arm }}{{ end }}
     format_overrides:
       - goos: windows
-        format: zip
+        formats: ["zip"]
 checksum:
-  name_template: 'vault-plugin-secrets-datadog_{{ .Version }}.checksums.txt'
+  name_template: "vault-plugin-secrets-datadog_{{ .Version }}.checksums.txt"
 snapshot:
   version_template: "{{ incpatch .Version }}-next"
 changelog:

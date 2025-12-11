@@ -17,3 +17,6 @@
 # Post `go build` commands for building the plugin
 vault/
 dist/
+
+# Claude Code configuration (may contain tokens)
+.claude/

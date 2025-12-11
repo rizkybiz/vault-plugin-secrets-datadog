@@ -18,8 +18,6 @@ jobs:
         with:
           # Optional: customize release types
           release-type: go
-          # Optional: path to your go module
-          package-name: vault-plugin-secrets-datadog
           # Token for GitHub API
           token: ${{ secrets.GITHUB_TOKEN }}
 

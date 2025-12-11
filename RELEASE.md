@@ -15,7 +15,9 @@ Release Please automates the entire release process:
 
 ## Commit Message Format
 
-Use [Conventional Commits](https://www.conventionalcommits.org/) for automatic changelog generation:
+Use [Conventional Commits](https://www.conventionalcommits.org/) for automatic changelog generation.
+
+**⚠️ ENFORCED:** Pull requests are automatically validated to ensure commit messages follow the conventional format. PRs that don't comply will fail status checks and cannot be merged.
 
 ### Version Bumps
 
@@ -105,6 +107,57 @@ This project follows [Semantic Versioning](https://semver.org/):
 While in 0.x.x versions:
 - Minor version changes (0.X.0) may include breaking changes
 - Patch versions (0.0.X) are for bug fixes only
+
+## Commit Message Validation
+
+### How It Works
+
+PRs are automatically checked for conventional commit compliance:
+
+1. **PR Title Validation**: Ensures PR title follows conventional format
+2. **Commit Message Validation**: Validates all commits in the PR
+3. **Status Check**: Required check must pass before merging
+
+### Validation Rules
+
+- **Type**: Must be one of: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, `revert`
+- **Scope** (optional): e.g., `feat(api):` or `fix(auth):`
+- **Subject**: Must start with uppercase letter, no period at end
+- **Length**: Header max 100 characters
+
+### Bypass Validation (Emergency Only)
+
+If you need to bypass validation temporarily:
+
+1. Add the label `ignore-semantic-pr` to the PR
+2. Merge carefully - this will not generate proper changelog entries
+
+### Fixing Validation Failures
+
+**If PR title is invalid:**
+```bash
+# Edit the PR title to follow format:
+# type(scope): Description starts with capital letter
+# Example: feat: Add new authentication method
+```
+
+**If commit messages are invalid:**
+```bash
+# Option 1: Amend the last commit
+git commit --amend -m "fix: correct commit message format"
+git push --force
+
+# Option 2: Interactive rebase to fix multiple commits
+git rebase -i HEAD~3  # Edit last 3 commits
+# Change "pick" to "reword" for commits to fix
+# Save and edit each commit message
+
+git push --force
+```
+
+**For squash merges:**
+- Only the PR title matters (it becomes the commit message)
+- Ensure PR title follows conventional format
 
 ## Troubleshooting
 

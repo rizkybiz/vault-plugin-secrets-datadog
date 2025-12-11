@@ -24,12 +24,26 @@ builds:
     ignore:
       - goos: darwin
         goarch: '386'
+      - goos: windows
+        goarch: arm
+        goarm: '6'
 archives:
-  - format: binary
+  - format: tar.gz
+    name_template: >-
+      {{ .ProjectName }}_
+      {{- .Version }}_
+      {{- .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else if eq .Arch "386" }}i386
+      {{- else }}{{ .Arch }}{{ end }}
+      {{- if .Arm }}v{{ .Arm }}{{ end }}
+    format_overrides:
+      - goos: windows
+        format: zip
 checksum:
   name_template: 'vault-plugin-secrets-datadog_{{ .Version }}.checksums.txt'
 snapshot:
-  name_template: "{{ .Version }}"
+  version_template: "{{ incpatch .Version }}-next"
 changelog:
   # Skip changelog generation since release-please handles it
   disable: true

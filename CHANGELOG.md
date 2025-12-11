@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.4](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.3...v0.2.4) (2025-12-11)
+
+
+### Bug Fixes
+
+* update goreleaser format parameter to formats array ([#77](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/77)) ([13311ef](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/13311ef08fd6adc5b62174db703527d77f2a9097))
+
 ## [0.2.3](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.2...v0.2.3) (2025-12-11)
 
 

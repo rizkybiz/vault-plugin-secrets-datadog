@@ -1,5 +1,9 @@
+# DEPRECATED: This workflow is being replaced by release-please.yml
 # This GitHub action can publish assets for release when a tag is created.
 # Currently its setup to run on any tag that matches the pattern "v*" (ie. v0.1.0).
+#
+# NOTE: release-please.yml now handles automated releases. This workflow will
+# still trigger on manual tag pushes as a fallback.
 #
 name: release
 on:
@@ -19,9 +23,9 @@ jobs:
         run: git fetch --prune --unshallow
       -
         name: Set up Go
-        uses: actions/setup-go@v4
+        uses: actions/setup-go@v5
         with:
-          go-version: '1.22.3'
+          go-version-file: 'go.mod'
       -
         name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v4

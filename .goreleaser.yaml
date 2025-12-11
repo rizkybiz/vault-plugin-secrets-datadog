@@ -29,4 +29,5 @@ checksum:
 snapshot:
   name_template: "{{ .Version }}"
 changelog:
-  use: github-native
+  # Skip changelog generation since release-please handles it
+  disable: true

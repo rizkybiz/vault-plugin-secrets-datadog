@@ -5,6 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.0](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.1.7...v0.2.0) (2025-12-11)
+
+
+### Features
+
+* Enforce conventional commits on pull requests ([#72](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/72)) ([88e94d7](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/88e94d7f564c7157708db7c471ddf0a218f773e5))
+* implement automated release process with release-please ([075698d](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/075698d91f7314dc14f0a682fcdff35ea9519dd8))
+
+
+### Bug Fixes
+
+* **security:** resolve remaining crypto vulnerabilities ([3a5b42c](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/3a5b42c0fb136a5d02043778da014d9a9c1e69b8))
+
 ## [Unreleased]
 
 ### Security

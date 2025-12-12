@@ -4,3 +4,9 @@ updates:
     directory: /
     schedule:
       interval: daily
+    commit-message:
+      # Capitalize the first letter after the scope to match conventional commits
+      # This changes "bump" to "Bump" in the commit message
+      prefix: build
+      prefix-development: build
+      include: scope

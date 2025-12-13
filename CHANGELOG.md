@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.5](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.4...v0.2.5) (2025-12-13)
+
+
+### Bug Fixes
+
+* Use PR author instead of workflow actor for dependabot check ([12ca00e](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/12ca00edc5e444057a74f008f678bbcb6ff7ad6e))
+
 ## [0.2.4](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.3...v0.2.4) (2025-12-11)
 
 

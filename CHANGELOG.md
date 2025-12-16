@@ -5,6 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.6](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.5...v0.2.6) (2025-12-13)
+
+
+### Dependencies
+
+* bump github.com/DataDog/datadog-api-client-go/v2 from 2.36.1 to 2.51.0 ([#80](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/80)) ([d73baad](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/d73baad))
+* bump github.com/hashicorp/vault/api from 1.16.0 to 1.22.0 ([#79](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/79)) ([a0e1622](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/a0e1622))
+* bump github.com/stretchr/testify from 1.10.0 to 1.11.1 ([#81](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/81)) ([e7f6218](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/e7f6218))
+
+
+### Miscellaneous
+
+* Change dependabot commit prefix from build to fix ([d5cefa5](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/d5cefa5))
+
 ## [0.2.5](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.4...v0.2.5) (2025-12-13)
 
 

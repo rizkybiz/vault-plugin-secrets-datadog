@@ -5,8 +5,7 @@ updates:
     schedule:
       interval: daily
     commit-message:
-      # Capitalize the first letter after the scope to match conventional commits
-      # This changes "bump" to "Bump" in the commit message
-      prefix: build
-      prefix-development: build
+      # Use fix prefix so dependabot PRs trigger patch releases
+      prefix: fix
+      prefix-development: fix
       include: scope

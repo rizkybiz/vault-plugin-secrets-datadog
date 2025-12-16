@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.6](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.5...v0.2.6) (2025-12-16)
+
+
+### Bug Fixes
+
+* Add goreleaser config path to legacy release workflow ([2708f35](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/2708f35ec91a8ae97e5ada1814bad12b0512c330))
+
 ## [0.2.6](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.5...v0.2.6) (2025-12-13)
 
 

@@ -5,6 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.7](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.6...v0.2.7) (2025-12-18)
+
+
+### Bug Fixes
+
+* **deps:** bump github.com/DataDog/datadog-api-client-go/v2 ([#84](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/84)) ([3db28d1](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/3db28d1e17bc5aef274c20db4731be2333eab6de))
+
 ## [0.2.6](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.5...v0.2.6) (2025-12-16)
 
 

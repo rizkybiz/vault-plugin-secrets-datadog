@@ -3,7 +3,7 @@ module github.com/rizkybiz/vault-plugin-secrets-datadog
 go 1.25.0
 
 require (
-	github.com/DataDog/datadog-api-client-go/v2 v2.52.0
+	github.com/DataDog/datadog-api-client-go/v2 v2.54.0
 	github.com/hashicorp/go-hclog v1.6.3
 	github.com/hashicorp/go-uuid v1.0.3
 	github.com/hashicorp/vault/api v1.22.0

@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.2.7](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.6...v0.2.7) (2026-04-09)
+
+
+### Bug Fixes
+
+* **deps:** bump github.com/DataDog/datadog-api-client-go/v2 ([#84](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/84)) ([3db28d1](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/3db28d1e17bc5aef274c20db4731be2333eab6de))
+* **deps:** bump github.com/DataDog/datadog-api-client-go/v2 ([#96](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/96)) ([ac33ac9](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/ac33ac9a599e198af059b20931304a726875a846))
+* **deps:** bump github.com/hashicorp/vault/api from 1.22.0 to 1.23.0 ([#94](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/94)) ([c4100aa](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/c4100aa0b68baf2eb120c17e7cbf12b7f875277f))
+* **deps:** bump github.com/hashicorp/vault/sdk from 0.20.0 to 0.25.1 ([#97](https://github.com/rizkybiz/vault-plugin-secrets-datadog/issues/97)) ([3dde9cb](https://github.com/rizkybiz/vault-plugin-secrets-datadog/commit/3dde9cb92a5c1cb3dd0867e78d4e60fbffcb847e))
+
 ## [0.2.6](https://github.com/rizkybiz/vault-plugin-secrets-datadog/compare/v0.2.5...v0.2.6) (2025-12-16)
 
 
